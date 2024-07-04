@@ -42,7 +42,7 @@ import SoundEffects from '@js/SoundEffects';
   }
 
   const soundEffects = new SoundEffects();
-  const MAX_REEL_ITEMS = 40;
+  const MAX_REEL_ITEMS = 200;
   const CONFETTI_COLORS = ['#26ccff', '#a25afd', '#ff5e7e', '#88ff5a', '#fcff42', '#ffa62d', '#ff36ff'];
   let confettiAnimationId;
 
@@ -82,6 +82,7 @@ import SoundEffects from '@js/SoundEffects';
     stopWinningAnimation();
     drawButton.disabled = true;
     settingsButton.disabled = true;
+
     soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
   };
 
@@ -117,10 +118,45 @@ import SoundEffects from '@js/SoundEffects';
     settingsWrapper.style.display = 'none';
   };
 
+  /** Function to fetch names from the API */
+  const fetchNamesAndUpdateTextArea = async () => {
+    const headersList = {
+      Accept: '*/*',
+      'Fineract-Platform-TenantId': 'default',
+      Authorization: 'Basic xxxxxxx=='
+    };
+
+    try {
+      const response = await fetch('https://demo.corebanker.io/fineract-provider/api/v1/clients', {
+        method: 'GET',
+        headers: headersList
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      if (data && Array.isArray(data.pageItems)) {
+        const ids = data.pageItems.map((client) => client.id);
+        nameListTextArea.value = ids.join('\n');
+        slot.names = ids;
+      } else {
+        console.error('Invalid data format received from API');
+      }
+    } catch (error) {
+      console.error('Failed to fetch names from API:', error);
+    }
+  };
+
+  // Fetch data on page load
+  window.addEventListener('load', fetchNamesAndUpdateTextArea);
+
   // Click handler for "Draw" button
   drawButton.addEventListener('click', () => {
     if (!slot.names.length) {
-      onSettingsOpen();
+      fetchNamesAndUpdateTextArea();
+      // onSettingsOpen();
       return;
     }
 
