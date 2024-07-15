@@ -132,3 +132,16 @@ a {
   object-fit: cover;
   opacity: 0.5;
 }
+
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* adjust as needed */
+}
+
+.logo {
+  width: 500px; /* adjust width as needed */
+  height: auto; /* maintain aspect ratio */
+  filter: invert(100%);
+}
