@@ -135,7 +135,7 @@ a {
 
 .logo-container {
   position: absolute;
-  top: 10px;
+  bottom: 20px;
   left: 10px;
   z-index: 1000; /* adjust as needed */
 }
@@ -143,5 +143,4 @@ a {
 .logo {
   width: 500px; /* adjust width as needed */
   height: auto; /* maintain aspect ratio */
-  filter: invert(100%);
 }

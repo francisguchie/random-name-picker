@@ -83,7 +83,7 @@ import SoundEffects from '@js/SoundEffects';
     drawButton.disabled = true;
     settingsButton.disabled = true;
 
-    soundEffects.spin((MAX_REEL_ITEMS - 1) / 10);
+    soundEffects.spin((MAX_REEL_ITEMS - 1) / 50);
   };
 
   /**  Functions to be trigger after spinning */
