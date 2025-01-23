@@ -1,11 +1,6 @@
 include ../mixins/icons
 
 .main
-  .logo-container
-    img(src="assets/images/logo.png", alt="Logo", class="logo")
-  .background-banner
-    //- img(src="assets/images/banner-7.jpg" class="banner-image")
-    img(src="assets/images/banner-8.png" class="banner-image")
   .control-group
     button#fullscreen-button.icon-button.icon-button--small
       +svg-icon.red.big(svg-icon-name='fullscreen')
@@ -15,9 +10,9 @@ include ../mixins/icons
   canvas#confetti-canvas.confetti
 
   #lucky-draw
-    //- .title
-    //-   //- Pug loader currently does not handle webpack alias so we will use relative path here
-    //-   include ../assets/images/title.svg
+    .title
+      //- Pug loader currently does not handle webpack alias so we will use relative path here
+      include ../assets/images/title.svg
 
     .slot
       .slot__outer
