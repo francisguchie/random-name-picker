@@ -53,7 +53,7 @@ export default class Slot {
    */
   constructor(
     {
-      maxReelItems = 100000,
+      maxReelItems = 1000000,
       removeWinner = true,
       reelContainerSelector,
       onSpinStart,
@@ -81,9 +81,9 @@ export default class Slot {
         { transform: `translateY(-${(this.maxReelItems - 1) * (7.5 * 16)}px)`, filter: 'blur(0)' }
       ],
       {
-        duration: this.maxReelItems * 10, // 100ms for 1 item
+        duration: this.maxReelItems * 80, // 100ms for 1 item
         easing: 'ease-in-out',
-        iterations: 2
+        iterations: 1
       }
     );
 
