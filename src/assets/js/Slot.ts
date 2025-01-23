@@ -43,6 +43,9 @@ export default class Slot {
   /** Callback function that runs after spinning reel */
   private onNameListChanged?: NonNullable<SlotConfigurations['onNameListChanged']>;
 
+  const spinSound = new Audio('path/to/spin-sound.mp3');
+
+
   /**
    * Constructor of Slot
    * @param maxReelItems  Maximum item inside a reel
