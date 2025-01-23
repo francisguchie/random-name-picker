@@ -114,7 +114,7 @@
 
   > div {
     height: $reel-item-height;
-    font-size: 3.75rem;
+    font-size: 2.0rem;
     font-weight: bold;
     text-align: center;
     line-height: $reel-item-height;
@@ -169,6 +169,7 @@
     height: 100%;
     width: 100%;
     max-width: $setting-panel-max-width;
+    //max-height: $setting-panel-max-height;
     padding: 3.125rem 3.125rem 0 3.125rem;
     overflow: auto;
     -webkit-overflow-scrolling: auto;
@@ -205,6 +206,7 @@
 .settings__panel {
   background-color: $color-settings-background;
   color: $color-text-light;
+ 
 }
 
 // Winning effects
