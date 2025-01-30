@@ -83,7 +83,7 @@ export default class Slot {
       {
         duration: this.maxReelItems * 10, // 100ms for 1 item
         easing: 'ease-in-out',
-        iterations: 2
+        iterations: 20   // https://www.youtube.com/watch?v=SP0RCMtfm4o
       }
     );
 
